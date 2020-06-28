@@ -1,0 +1,19 @@
+{
+  [
+    {
+      "ObjectID": "SignIn-emailInput",
+      "InputData": "",
+      "ActionType": "InputUsername"
+    },
+    {
+      "ObjectID": "SignIn-passwordInput",
+      "InputData": "",
+      "ActionType": "InputPassword"
+    },
+    {
+      "ObjectID": "SignIn-submitButton",
+      "InputData": "",
+      "ActionType": "Click"
+    }
+  ]
+}

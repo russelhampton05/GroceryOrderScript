@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryOrderScript", "GroceryOrderScript\GroceryOrderScript.csproj", "{60467BF5-5B6F-43C2-A4F2-1CD19E9911EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Secrets", "Secrets", "{69352D46-2033-4FEF-9584-F6E58637B44D}"
+	ProjectSection(SolutionItems) = preProject
+		checkoutItemScript.json = checkoutItemScript.json
+		loginScript.json = loginScript.json
+		secrets.json = secrets.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryOrderScript.Test", "GroceryOrderScript.Test\GroceryOrderScript.Test.csproj", "{2F5D65FF-BC34-411D-A835-3262542AC629}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60467BF5-5B6F-43C2-A4F2-1CD19E9911EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60467BF5-5B6F-43C2-A4F2-1CD19E9911EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60467BF5-5B6F-43C2-A4F2-1CD19E9911EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60467BF5-5B6F-43C2-A4F2-1CD19E9911EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F5D65FF-BC34-411D-A835-3262542AC629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F5D65FF-BC34-411D-A835-3262542AC629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F5D65FF-BC34-411D-A835-3262542AC629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F5D65FF-BC34-411D-A835-3262542AC629}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D19A5126-87EF-47E5-9C76-9576843693A0}
+	EndGlobalSection
+EndGlobal
