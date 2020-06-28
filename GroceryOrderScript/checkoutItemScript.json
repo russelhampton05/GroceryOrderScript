@@ -1,0 +1,14 @@
+[
+  {
+    "ObjectID": "SearchBar-input",
+    "InputData": "",
+    "ActionType": "InputText",
+    "Label": ""
+  },
+  {
+    "ObjectID": "",
+    "InputData": "",
+    "ActionType": "Click",
+    "Label": "Add to cart"
+  }
+]

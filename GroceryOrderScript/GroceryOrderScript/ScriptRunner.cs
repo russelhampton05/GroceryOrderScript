@@ -6,39 +6,47 @@ namespace GroceryOrderScript
 {
     public class ScriptRunner
     {
-        private OpenQA.Selenium.Firefox.FirefoxDriver driver;
-        
+        private OpenQA.Selenium.Chrome.ChromeDriver driver;
+
         public ScriptRunner(string pathToGecko)
         {
-            driver = new OpenQA.Selenium.Firefox.FirefoxDriver(pathToGecko);
+            driver = new OpenQA.Selenium.Chrome.ChromeDriver(pathToGecko);
         }
 
         public void RunActions(List<Action> actions)
         {
             foreach (var action in actions)
             {
-                var element = driver.FindElementById(action.ObjectID);
-                switch (action.ActionType)
+                if (action.ActionType != ActionType.Navigate)
                 {
-                    case ActionType.Click:
-                        element.Click();
-                        break;
-                    case ActionType.InputText:
-                    case ActionType.InputUsername:
-                    case ActionType.InputPassword:
-                        element.SendKeys(action.InputData);
-                        break;
-                    case ActionType.Wait:
-                        Thread.Sleep(1000);
-                        break;
-                    case ActionType.BackNavigate:
-                        throw new Exception("Don't know if I need this yet");
-                    case ActionType.ForwardNavigate:
-                        throw new Exception("Don't know if I need this yet");
-                    case ActionType.CaptureData:
-                        throw new Exception("Don't know if I need this yet");
-                    case ActionType.DownloadFile:
-                        throw new Exception("Don't know if I need this yet");
+
+                    var element = driver.FindElementById(action.ObjectID);
+
+                    if (element == null)
+                    {
+                        element = driver.FindElementByLinkText(action.Label);
+                    }
+
+
+                    switch (action.ActionType)
+                    {
+                        case ActionType.Click:
+                            element.Click();
+                            break;
+                        case ActionType.InputText:
+                        case ActionType.InputUsername:
+                        case ActionType.InputPassword:
+                            element.SendKeys(action.InputData);
+                            break;
+                        case ActionType.Wait:
+                            Thread.Sleep(1000);
+                            break;
+                    }
+                }
+                else if (action.ActionType == ActionType.Navigate)
+                {
+                    driver.Url = action.InputData;
+                    driver.Navigate();
                 }
             }
         }

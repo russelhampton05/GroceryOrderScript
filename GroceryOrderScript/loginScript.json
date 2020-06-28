@@ -1,19 +1,26 @@
-{
-  [
-    {
-      "ObjectID": "SignIn-emailInput",
-      "InputData": "",
-      "ActionType": "InputUsername"
-    },
-    {
-      "ObjectID": "SignIn-passwordInput",
-      "InputData": "",
-      "ActionType": "InputPassword"
-    },
-    {
-      "ObjectID": "SignIn-submitButton",
-      "InputData": "",
-      "ActionType": "Click"
-    }
-  ]
-}
+[
+  {
+    "ObjectID": "",
+    "InputData": "",
+    "ActionType": "Navigate",
+    "Label": ""
+  },
+  {
+    "ObjectID": "SignIn-emailInput",
+    "InputData": "",
+    "ActionType": "InputUsername",
+    "Label": ""
+  },
+  {
+    "ObjectID": "SignIn-passwordInput",
+    "InputData": "",
+    "ActionType": "InputPassword",
+    "Label": ""
+  },
+  {
+    "ObjectID": "SignIn-submitButton",
+    "InputData": "",
+    "ActionType": "Click",
+    "Label": ""
+  }
+]

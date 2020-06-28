@@ -7,8 +7,7 @@
         InputUsername,
         InputPassword,
         Wait,
-        BackNavigate,
-        ForwardNavigate,
+        Navigate,
         CaptureData,
         DownloadFile,
     }
