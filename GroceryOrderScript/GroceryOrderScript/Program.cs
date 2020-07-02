@@ -27,8 +27,8 @@ namespace GroceryOrderScript
                 AppSecrets secrets = Newtonsoft.Json.JsonConvert.DeserializeObject<AppSecrets>(File.ReadAllText(pathToSecrets));
 
                 ScriptLoader loader = new ScriptLoader();
-                ScriptRunner runner = new ScriptRunner(pathToGecko);
-
+                using ScriptRunner runner = new ScriptRunner(pathToGecko);
+                Console.Clear();
                 runner.RunActions(loader.LoadLoginAction(pathToLoginScript, secrets.GroceryUsername, secrets.GroceryPassword, secrets.GroceryUrl));
 
                 if (args.Length == 0)
@@ -55,10 +55,10 @@ namespace GroceryOrderScript
             }
             catch(Exception ex)
             {
-                Console.WriteLine($"{ex.Message}");
+                Console.WriteLine($"Error {ex.Message}");
             }
 
-            Console.WriteLine("All items checked in");
+            Console.WriteLine("End of script");
             Console.ReadLine();
         }
 
