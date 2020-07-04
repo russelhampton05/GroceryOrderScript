@@ -4,6 +4,7 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 
 namespace GroceryOrderScript
@@ -36,6 +37,7 @@ namespace GroceryOrderScript
 
         public void RunActions(List<Action> actions)
         {
+            var missedActions = new List<Action>();
 
             foreach (var action in actions)
             {
@@ -61,7 +63,7 @@ namespace GroceryOrderScript
                             element = driver.FindElementByClassName(action.Label);
                         }
 
-                        Console.WriteLine($"Running {action.ActionType} {action.Label} {action.ObjectID}");
+                        Console.WriteLine($"Running {action.ActionType} {action.InputData} {action.Label} {action.ObjectID}");
 
                         switch (action.ActionType)
                         {
@@ -98,11 +100,24 @@ namespace GroceryOrderScript
                 {
                     if (action.Optional)
                     {
+                        Console.WriteLine($"ERROR : {action.InputData} {action.ActionType} {action.Label} {action.ObjectID} action missed");
+                        missedActions.Add(action);
                         continue;
                     }
 
                     throw ex;
                 }
+            }
+
+            if (missedActions.Any())
+            {
+                string errorMessage = "";
+                foreach(var action in missedActions)
+                {
+                    errorMessage += $"Exception on {action.InputData}";
+                }
+
+                throw new Exception(errorMessage);
             }
         }
 

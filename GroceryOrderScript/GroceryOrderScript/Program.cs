@@ -55,7 +55,7 @@ namespace GroceryOrderScript
             }
             catch(Exception ex)
             {
-                Console.WriteLine($"Error {ex.Message}");
+                Console.WriteLine($"ERROR : {ex.Message}");
             }
 
             Console.WriteLine("End of script");
