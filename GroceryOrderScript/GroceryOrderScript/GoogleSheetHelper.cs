@@ -31,15 +31,16 @@ namespace GroceryOrderScript
             cred = cred.CreateScoped(scopes);
             this.googleCredential = cred;
             this.ApplicationName = applicationName;
+            Init();
         }
 
-        public void Init()
+        private void Init()
         {
             sheetService = new SheetsService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = googleCredential,
                 ApplicationName = ApplicationName,
-            });
+            }) ;
         }
 
         public async Task<ValueRange> GetRange(string spreadSheetId, string range)

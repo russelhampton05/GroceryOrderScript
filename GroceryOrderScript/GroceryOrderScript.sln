@@ -10,7 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Secrets", "Secrets", "{6935
 		checkoutItemScript.json = checkoutItemScript.json
 		client_secret.json = client_secret.json
 		loginScript.json = loginScript.json
-		secrets.json = secrets.json
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryOrderScript.Test", "GroceryOrderScript.Test\GroceryOrderScript.Test.csproj", "{2F5D65FF-BC34-411D-A835-3262542AC629}"

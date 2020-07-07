@@ -30,7 +30,7 @@ namespace GroceryOrderScript
 
                 AppSecrets secrets = Newtonsoft.Json.JsonConvert.DeserializeObject<AppSecrets>(File.ReadAllText(pathToSecrets));
                 GoogleSheetHelper sheetHelper = new GoogleSheetHelper(pathToAppSecrets, "GroceryApp");
-                var items = await sheetHelper.GetRange(sheetId, "A:B");
+                var items = await sheetHelper.GetRange(sheetId, $"{sheetName}!A:B");
                 var groceryItems = GetGroceryItems(items.Values);
                 ScriptLoader loader = new ScriptLoader();
                 using ScriptRunner runner = new ScriptRunner(pathToGecko);
@@ -63,6 +63,11 @@ namespace GroceryOrderScript
             List<GroceryItem> groceryItems = new List<GroceryItem>();
             foreach (var item in items)
             {
+                if(item.Count != 2)
+                {
+                    continue;
+                }
+
                 groceryItems.Add(new GroceryItem() { UID = item[0].ToString(), Count = int.Parse(item[1].ToString()) });
             }
 
