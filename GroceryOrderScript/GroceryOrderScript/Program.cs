@@ -3,12 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace GroceryOrderScript
 {
+
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             try
             {
@@ -16,32 +18,26 @@ namespace GroceryOrderScript
                     .SetBasePath(Directory.GetCurrentDirectory())
                     .AddJsonFile("appsettings.json")
                     .Build();
-
+                
                 var appSettings = config.GetSection("AppSettings");
-                var pathToList = appSettings["PathToGroceryList"];
+                var pathToAppSecrets = appSettings["PathToAppSecrets"];
+                var sheetId = appSettings["SheetId"];
+                var sheetName = appSettings["SheetName"];
                 var pathToGecko = appSettings["PathToGecko"];
                 var pathToSecrets = appSettings["PathToSecret"];
                 var pathToLoginScript = appSettings["PathToLoginScript"];
                 var pathToCheckoutItemScript = appSettings["PathToCheckoutItemScript"];
 
                 AppSecrets secrets = Newtonsoft.Json.JsonConvert.DeserializeObject<AppSecrets>(File.ReadAllText(pathToSecrets));
-
+                GoogleSheetHelper sheetHelper = new GoogleSheetHelper(pathToAppSecrets, "GroceryApp");
+                var items = await sheetHelper.GetRange(sheetId, "A:B");
+                var groceryItems = GetGroceryItems(items.Values);
                 ScriptLoader loader = new ScriptLoader();
                 using ScriptRunner runner = new ScriptRunner(pathToGecko);
-                Console.Clear();
+
                 runner.RunActions(loader.LoadLoginAction(pathToLoginScript, secrets.GroceryUsername, secrets.GroceryPassword, secrets.GroceryUrl));
 
-                if (args.Length == 0)
-                {
-                    Console.WriteLine($"No grocery list detected. Using default list location at {pathToList}");
-                }
-                else
-                {
-                    Console.WriteLine($"Using {args[0]} as list");
-                    pathToList = args[0];
-                }
-
-                var groceryItems = GetGroceryItems(pathToList);
+             
 
                 foreach (var item in groceryItems)
                 {
@@ -53,7 +49,7 @@ namespace GroceryOrderScript
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"ERROR : {ex.Message}");
             }
@@ -62,12 +58,15 @@ namespace GroceryOrderScript
             Console.ReadLine();
         }
 
-        private static List<GroceryItem> GetGroceryItems(string path)
+        private static List<GroceryItem> GetGroceryItems(IList<IList<object>> items)
         {
-            return System.IO.File.ReadAllLines(path)
-                .Select(line => new GroceryItem() { UID = line.Split(',')[0], Count = int.Parse(line.Split(',')[1]) })
-                .ToList();
-            
+            List<GroceryItem> groceryItems = new List<GroceryItem>();
+            foreach (var item in items)
+            {
+                groceryItems.Add(new GroceryItem() { UID = item[0].ToString(), Count = int.Parse(item[1].ToString()) });
+            }
+
+            return groceryItems;
         }
     }
 }
