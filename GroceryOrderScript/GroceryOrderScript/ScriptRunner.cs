@@ -4,6 +4,7 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 
@@ -23,6 +24,11 @@ namespace GroceryOrderScript
             options.AddArgument("--disable-blink-features=AutomationControlled");
             options.AddArgument("disable-gpu");
             // options.AddArgument("--headless");
+
+            if (string.IsNullOrEmpty(pathToGecko))
+            {
+                pathToGecko = Directory.GetCurrentDirectory();
+            }
 
             driver = new OpenQA.Selenium.Chrome.ChromeDriver(pathToGecko, options);
             var parameters = new Dictionary<string, object>
