@@ -351,3 +351,4 @@ MigrationBackup/
 .ionide/
 /GroceryOrderScript/secrets.json
 /GroceryOrderScript/client_secret.json
+/GroceryOrderScript/KrogerApi.Test/kroger_secrets.json

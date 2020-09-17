@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using KrogerApi;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,26 +28,18 @@ namespace GroceryOrderScript
                 var pathToSecrets = appSettings["PathToSecret"];
                 var pathToLoginScript = appSettings["PathToLoginScript"];
                 var pathToCheckoutItemScript = appSettings["PathToCheckoutItemScript"];
-
+                var pathToKrogerConfig = appSettings["PathToKrogerSecret"];
                 AppSecrets secrets = Newtonsoft.Json.JsonConvert.DeserializeObject<AppSecrets>(File.ReadAllText(pathToSecrets));
+                KrogerConfig krogerConfig = KrogerConfig.FromFile(pathToKrogerConfig);
+                KrogerClient krogerClient = new KrogerClient(krogerConfig);
                 GoogleSheetHelper sheetHelper = new GoogleSheetHelper(pathToAppSecrets, "GroceryApp");
                 var items = await sheetHelper.GetRange(sheetId, $"{sheetName}!A:B");
                 var groceryItems = GetGroceryItems(items.Values);
-                ScriptLoader loader = new ScriptLoader();
-                using ScriptRunner runner = new ScriptRunner(pathToGecko);
-
-                runner.RunActions(loader.LoadLoginAction(pathToLoginScript, secrets.GroceryUsername, secrets.GroceryPassword, secrets.GroceryUrl));
-
-             
-
-                foreach (var item in groceryItems)
-                {
-                    for (int i = 0; i < item.Count; i++)
-                    {
-                        var itemActions = loader.LoadGetItemAction(item, pathToCheckoutItemScript);
-                        runner.RunActions(itemActions);
-                    }
-                }
+                var kitems = groceryItems.Select(m => m.KrogerItemFromGroceryItem());
+                await krogerClient.RefreshToken();
+                krogerConfig.ToFile(pathToKrogerConfig);
+                await krogerClient.Add(kitems.ToList());
+                Console.WriteLine("All done");
 
             }
             catch (Exception ex)

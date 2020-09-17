@@ -19,6 +19,7 @@ namespace GroceryOrderScript
 
 
             OpenQA.Selenium.Chrome.ChromeOptions options = new OpenQA.Selenium.Chrome.ChromeOptions();
+            options.PageLoadStrategy = PageLoadStrategy.Normal;
             options.AddArgument("--no-sandbox");
             options.AddArgument("--disable-blink-features");
             options.AddArgument("--disable-blink-features=AutomationControlled");
@@ -47,6 +48,7 @@ namespace GroceryOrderScript
 
             foreach (var action in actions)
             {
+                
                 try
                 {
                     if (action.ActionType == ActionType.Wait)
@@ -102,7 +104,7 @@ namespace GroceryOrderScript
                         driver.Navigate();
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     if (action.Optional)
                     {
@@ -118,9 +120,9 @@ namespace GroceryOrderScript
             if (missedActions.Any())
             {
                 string errorMessage = "";
-                foreach(var action in missedActions)
+                foreach (var action in missedActions)
                 {
-                    errorMessage += $"Exception on {action.InputData}";
+                    errorMessage += $"Exception on {action.Label} {action.ObjectID}";
                 }
 
                 throw new Exception(errorMessage);
