@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryOrderScript", "Groce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryOrderScript.Test", "GroceryOrderScript.Test\GroceryOrderScript.Test.csproj", "{2F5D65FF-BC34-411D-A835-3262542AC629}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrogerApi", "KrogerApi\KrogerApi.csproj", "{9750268B-0FA8-4383-9D84-F9E53926462B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KrogerApi", "KrogerApi\KrogerApi.csproj", "{9750268B-0FA8-4383-9D84-F9E53926462B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrogerApi.Test", "KrogerApi.Test\KrogerApi.Test.csproj", "{BA33A561-3E53-4155-9A34-964A7FB1E9DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KrogerApi.Test", "KrogerApi.Test\KrogerApi.Test.csproj", "{BA33A561-3E53-4155-9A34-964A7FB1E9DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryOrderAPI", "GroceryOrderAPI\GroceryOrderAPI.csproj", "{ABAEEF16-D834-4F33-BE16-FEFD8C79A180}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BA33A561-3E53-4155-9A34-964A7FB1E9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA33A561-3E53-4155-9A34-964A7FB1E9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA33A561-3E53-4155-9A34-964A7FB1E9DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABAEEF16-D834-4F33-BE16-FEFD8C79A180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABAEEF16-D834-4F33-BE16-FEFD8C79A180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABAEEF16-D834-4F33-BE16-FEFD8C79A180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABAEEF16-D834-4F33-BE16-FEFD8C79A180}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

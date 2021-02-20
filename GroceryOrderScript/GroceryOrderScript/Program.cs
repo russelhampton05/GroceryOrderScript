@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace GroceryOrderScript
 {
 
-    class Program
+    public class Program
     {
-        static async Task Main(string[] args)
+        public static async Task Main(string[] args)
         {
             try
             {
