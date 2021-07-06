@@ -5,13 +5,15 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryOrderScript", "GroceryOrderScript\GroceryOrderScript.csproj", "{60467BF5-5B6F-43C2-A4F2-1CD19E9911EF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryOrderScript.Test", "GroceryOrderScript.Test\GroceryOrderScript.Test.csproj", "{2F5D65FF-BC34-411D-A835-3262542AC629}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KrogerApi", "KrogerApi\KrogerApi.csproj", "{9750268B-0FA8-4383-9D84-F9E53926462B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KrogerApi.Test", "KrogerApi.Test\KrogerApi.Test.csproj", "{BA33A561-3E53-4155-9A34-964A7FB1E9DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryOrderAPI", "GroceryOrderAPI\GroceryOrderAPI.csproj", "{ABAEEF16-D834-4F33-BE16-FEFD8C79A180}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroceryOrderAPI", "GroceryOrderAPI\GroceryOrderAPI.csproj", "{ABAEEF16-D834-4F33-BE16-FEFD8C79A180}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoogleApi.Tests", "GoogleApi.Tests\GoogleApi.Tests.csproj", "{FAAD1FDD-5A1B-4581-8FD1-E2B9D5A5C74E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleApiHelpers", "GoogleApiHelpers\GoogleApiHelpers.csproj", "{B246AB72-12D7-45B4-BBFD-8C587B6C2D2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +25,6 @@ Global
 		{60467BF5-5B6F-43C2-A4F2-1CD19E9911EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60467BF5-5B6F-43C2-A4F2-1CD19E9911EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60467BF5-5B6F-43C2-A4F2-1CD19E9911EF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F5D65FF-BC34-411D-A835-3262542AC629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F5D65FF-BC34-411D-A835-3262542AC629}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F5D65FF-BC34-411D-A835-3262542AC629}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F5D65FF-BC34-411D-A835-3262542AC629}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9750268B-0FA8-4383-9D84-F9E53926462B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9750268B-0FA8-4383-9D84-F9E53926462B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9750268B-0FA8-4383-9D84-F9E53926462B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +37,14 @@ Global
 		{ABAEEF16-D834-4F33-BE16-FEFD8C79A180}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABAEEF16-D834-4F33-BE16-FEFD8C79A180}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABAEEF16-D834-4F33-BE16-FEFD8C79A180}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAAD1FDD-5A1B-4581-8FD1-E2B9D5A5C74E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAAD1FDD-5A1B-4581-8FD1-E2B9D5A5C74E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAAD1FDD-5A1B-4581-8FD1-E2B9D5A5C74E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAAD1FDD-5A1B-4581-8FD1-E2B9D5A5C74E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B246AB72-12D7-45B4-BBFD-8C587B6C2D2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B246AB72-12D7-45B4-BBFD-8C587B6C2D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B246AB72-12D7-45B4-BBFD-8C587B6C2D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B246AB72-12D7-45B4-BBFD-8C587B6C2D2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

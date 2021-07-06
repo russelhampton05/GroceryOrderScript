@@ -12,7 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GroceryOrderScript\GroceryOrderScript.csproj" />
+    <ProjectReference Include="..\GoogleApiHelpers\GoogleApiHelpers.csproj" />
+    <ProjectReference Include="..\KrogerApi\KrogerApi.csproj" />
   </ItemGroup>
 
   <ItemGroup>

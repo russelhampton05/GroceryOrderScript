@@ -1,14 +1,13 @@
-﻿using Google.Apis.Auth.OAuth2;
-using Google.Apis.Services;
-using Google.Apis.Sheets.v4;
-using Google.Apis.Sheets.v4.Data;
-using Microsoft.Extensions.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Services;
+using Google.Apis.Sheets.v4;
+using Google.Apis.Sheets.v4.Data;
 
-namespace GroceryOrderScript
+namespace GoogleApiHelpers
 {
     public class GoogleSheetHelper
     {
@@ -16,7 +15,6 @@ namespace GroceryOrderScript
         private string[] scopes = { SheetsService.Scope.Spreadsheets };
         private GoogleCredential googleCredential;
         private SheetsService sheetService;
-
 
         public GoogleSheetHelper(GoogleCredential googleCredential, string applicationName)
         {
@@ -40,7 +38,7 @@ namespace GroceryOrderScript
             {
                 HttpClientInitializer = googleCredential,
                 ApplicationName = ApplicationName,
-            }) ;
+            });
         }
 
         public async Task<ValueRange> GetRange(string spreadSheetId, string range)

@@ -1,9 +1,9 @@
-﻿using Google.Apis.Sheets.v4.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Google.Apis.Sheets.v4.Data;
 
-namespace GroceryOrderScript
+namespace GoogleApiHelpers
 {
     public interface ISheetHelper
     {

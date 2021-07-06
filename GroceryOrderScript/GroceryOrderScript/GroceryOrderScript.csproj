@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GoogleApiHelpers\GoogleApiHelpers.csproj" />
     <ProjectReference Include="..\KrogerApi\KrogerApi.csproj" />
   </ItemGroup>
 

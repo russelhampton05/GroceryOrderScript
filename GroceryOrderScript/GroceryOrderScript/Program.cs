@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using GoogleApiHelpers;
 using GroceryOrderScript.KrogerExtensions;
 
 namespace GroceryOrderScript
@@ -25,10 +26,7 @@ namespace GroceryOrderScript
                 var pathToAppSecrets = appSettings["PathToAppSecrets"];
                 var sheetId = appSettings["SheetId"];
                 var sheetName = appSettings["SheetName"];
-                var pathToGecko = appSettings["PathToGecko"];
                 var pathToSecrets = appSettings["PathToSecret"];
-                var pathToLoginScript = appSettings["PathToLoginScript"];
-                var pathToCheckoutItemScript = appSettings["PathToCheckoutItemScript"];
                 var pathToKrogerConfig = appSettings["PathToKrogerSecret"];
                 AppSecrets secrets = Newtonsoft.Json.JsonConvert.DeserializeObject<AppSecrets>(File.ReadAllText(pathToSecrets));
                 KrogerConfig krogerConfig = KrogerConfig.FromFile(pathToKrogerConfig);
