@@ -24,11 +24,11 @@ namespace KrogerApi
             var jContent = Newtonsoft.Json.JsonConvert.DeserializeObject<JObject>(content);
             KrogerConfig config = new KrogerConfig()
             {
-                RefreshToken = jContent["RefreshToken"].ToString(),
-                ClientId = jContent["ClientId"].ToString(),
-                ClientSecret = jContent["ClientSecret"].ToString(),
-                Token = jContent["Token"].ToString(),
-                KrogerTokenUrl = jContent["KrogerTokenUrl"].ToString()
+                RefreshToken = jContent["refreshToken"].ToString(),
+                ClientId = jContent["clientId"].ToString(),
+                ClientSecret = jContent["clientSecret"].ToString(),
+                Token = jContent["token"].ToString(),
+                KrogerTokenUrl = jContent["krogerTokenUrl"].ToString()
             };
 
             return config;

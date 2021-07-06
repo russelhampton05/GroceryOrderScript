@@ -1,6 +1,7 @@
-﻿using KrogerApi;
+﻿using GroceryOrderScript;
+using KrogerApi;
 
-namespace GroceryOrderScript.KrogerExtensions
+namespace GroceryOrderAPI.Controllers
 {
     static class KrogerExtensions
     {
@@ -16,4 +17,3 @@ namespace GroceryOrderScript.KrogerExtensions
         }
     }
 }
- 
