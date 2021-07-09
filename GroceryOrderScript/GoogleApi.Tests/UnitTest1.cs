@@ -9,7 +9,7 @@ namespace GoogleApi.Tests
         [TestMethod]
         public void GetsSheetItems()
         {
-            var pathToAppSecrets = "./Secrets/client_secret.json";
+            var pathToAppSecrets = "../../../Secrets/client_secret.json";
             var sheetId = "1AqvY1z2x7vWST3GDJJQVq9xhJZlfKcmm3HIPHYpz06I";
             var sheetName = "groceryList";
 

@@ -1,5 +1,4 @@
-﻿using GroceryOrderScript;
-using KrogerApi;
+﻿using KrogerApi;
 
 namespace GroceryOrderAPI.Controllers
 {

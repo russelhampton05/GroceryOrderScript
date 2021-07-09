@@ -21,6 +21,11 @@ namespace GroceryOrderAPI
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                }).UseWindowsService();
+                })
+                .ConfigureWebHostDefaults(config =>
+                {
+                    config.UseUrls("http://*:5000");
+                })
+                .UseWindowsService();
     }
 }
